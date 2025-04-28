@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Mood Brewer</title>
+    <title>Sign Up - Mood Brewer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/components/container_box.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/components/logo_panel.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
 </head>
 <body>
     <div class="main-flex">
         {% set box_content %}
-            <form class="login-form" method="POST" action="{{ url_for('login') }}">
-                <div class="login-top-group">
-                    <h2 class="login-title">LOGIN</h2>
-                    <input type="text" name="username" placeholder="USERNAME" class="login-input" required>
-                    <input type="password" name="password" placeholder="PASSWORD" class="login-input" required>
+            <form class="signup-form" method="POST" action="{{ url_for('signup') }}">
+                <div class="signup-top-group">
+                    <h2 class="signup-title">SIGN UP</h2>
+                    <input type="text" name="username" placeholder="USERNAME" class="signup-input" required>
+                    <input type="email" name="email" placeholder="EMAIL" class="signup-input" required>
+                    <input type="password" name="password" placeholder="PASSWORD" class="signup-input" required>
                 </div>
-                <div class="login-bottom-group">
-                    <button type="submit" class="login-btn">LOGIN</button>
-                    <div class="signup-text">
-                        NO ACCOUNT? <a href="{{ url_for('signup') }}">SIGN UP HERE!</a>
+                <div class="signup-bottom-group">
+                    <button type="submit" class="signup-btn">SIGN UP</button>
+                    <div class="login-text">
+                        HAVE AN ACCOUNT? <a href="{{ url_for('login') }}">LOGIN HERE!</a>
                     </div>
                 </div>
             </form>

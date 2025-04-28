@@ -19,7 +19,7 @@
                     LOGIN
                     <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
                 </a>
-                <a href="#" class="signup-link">
+                <a href="{{ url_for('signup') }}" class="signup-link">
                     SIGN UP
                     <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
                 </a>
@@ -31,5 +31,6 @@
 
     {% block login_actions %}
     {% endblock %}
+    <script src="{{ url_for('static', filename='js/container_box.js') }}"></script>
 </body>
 </html> 

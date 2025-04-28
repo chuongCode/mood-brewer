@@ -1,0 +1,114 @@
+/* Signup Page Specific Styles */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    min-height: 420px;
+    width: 100%;
+    gap: 0;
+    margin-top: 0;
+    top: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.signup-top-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    margin-top: 90px;
+}
+
+.signup-bottom-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.signup-title {
+    color: #DFCCAF;
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+}
+
+.signup-input {
+    width: 75%;
+    max-width: 420px;
+    min-width: 220px;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: none;
+    background: #DFCCAF;
+    color: #6F4436;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.signup-input::placeholder {
+    font-family: 'CustomFont', Arial, sans-serif;
+    font-size: 1.4rem;
+    color: #291313;
+    opacity: .5;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.signup-btn {
+    font-family: 'CustomFont', Arial, sans-serif;
+    width: 40%;
+    min-width: 120px;
+    max-width: 180px;
+    padding: 10px 0;
+    border-radius: 25px;
+    background: #BE9B7B;
+    opacity: 1;
+    color: #291313;
+    font-size: 1.1rem;
+    font-weight: 900;
+    border: 3px solid #DFCCAF;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.signup-btn:hover {
+    background: #fff2dc;
+    color: #6F4436;
+}
+
+.login-text {
+    color: #F5E3C3;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.login-text a {
+    color: #DFCCAF;
+    text-decoration: underline;
+    font-weight: 900;
+    margin-left: 4px;
+    transition: color 0.2s;
+}
+
+.login-text a:hover {
+    color: #fff2dc;
+} 
