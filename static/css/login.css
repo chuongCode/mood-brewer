@@ -113,15 +113,15 @@ body {
 }
 .welcome-title {
     color: #291313;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: -15px;
 }
 .logo-img {
     width: 500px;
     display: block;
-    margin: 0 auto 40px auto;
+    margin: 0 auto -30px auto;
 }
 .subtitle {
     color: #291313;
@@ -163,6 +163,8 @@ body {
     gap: 0;
     margin-top: 0;
     top: 0;
+    position: relative;
+    z-index: 2;
 }
 .login-top-group {
     display: flex;
@@ -213,16 +215,18 @@ body {
     letter-spacing: 1px;
 }
 .login-btn {
+    font-family: 'CustomFont', Arial, sans-serif;
     width: 40%;
     min-width: 120px;
     max-width: 180px;
     padding: 10px 0;
-    border-radius: 20px;
-    background: #DFCCAF;
+    border-radius: 25px;
+    background: #BE9B7B;
+    opacity: 1;
     color: #291313;
     font-size: 1.1rem;
     font-weight: 900;
-    border: none;
+    border: 3px solid #DFCCAF;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     cursor: pointer;
     margin-top: 6px;
