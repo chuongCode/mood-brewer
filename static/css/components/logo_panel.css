@@ -1,0 +1,31 @@
+/* Logo Panel Component Styles */
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 500px;
+}
+
+.welcome-title {
+    color: #291313;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: -15px;
+}
+
+.logo-img {
+    width: 500px;
+    display: block;
+    margin: 0 auto -30px auto;
+}
+
+.subtitle {
+    color: #291313;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 40px;
+} 
