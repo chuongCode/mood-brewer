@@ -12,11 +12,17 @@
         <div class="container-wrapper">
             <div class="login-container">
                 <div class="login-actions">
-                    <a href="#" class="login-link">LOGIN</a>
-                    <a href="#" class="signup-link">SIGN UP</a>
+                    <a href="#" class="login-link">
+                        LOGIN
+                        <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
+                    </a>
+                    <a href="#" class="signup-link">
+                        SIGN UP
+                        <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
+                    </a>
                 </div>
                 <img src="{{ url_for('static', filename='images/Leaf.png') }}" class="leaf top-left">
-                <img src="{{ url_for('static', filename='images/Leaf.png') }}" class="leaf bottom-right">
+                <img src="{{ url_for('static', filename='images/leaf2.png') }}" class="leaf bottom-right">
             </div>
         </div>
         <div class="right-panel">
