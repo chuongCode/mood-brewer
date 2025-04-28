@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Mood Brewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="main-flex">
+        <div class="container-wrapper">
+            <div class="login-container">
+                <div class="login-actions">
+                    <a href="#" class="login-link">LOGIN</a>
+                    <a href="#" class="signup-link">SIGN UP</a>
+                </div>
+                <img src="{{ url_for('static', filename='images/Leaf.png') }}" class="leaf top-left">
+                <img src="{{ url_for('static', filename='images/Leaf.png') }}" class="leaf bottom-right">
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="welcome-title">Welcome To</div>
+            <img src="{{ url_for('static', filename='images/Logo_MoodBrewer 1.png') }}" class="logo-img" alt="Mood Brewer Logo">
+            <div class="subtitle">A Caffeine Tracker Website</div>
+        </div>
+    </div>
+</body>
+</html> 

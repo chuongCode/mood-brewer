@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .font-test {
+            margin: 20px 0;
+        }
+        .font-test h2 {
+            margin-bottom: 10px;
+        }
+        .weight-test {
+            font-family: 'CustomFont', Arial, sans-serif;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -19,6 +31,19 @@
     <main>
         <h1>Welcome to Flask</h1>
         <p>This is a simple Flask application.</p>
+        
+        <div class="font-test">
+            <h2>Font Weight Test:</h2>
+            <div class="weight-test" style="font-weight: 100">Weight 100 (Thin)</div>
+            <div class="weight-test" style="font-weight: 200">Weight 200 (Extra Light)</div>
+            <div class="weight-test" style="font-weight: 300">Weight 300 (Light)</div>
+            <div class="weight-test" style="font-weight: 400">Weight 400 (Normal)</div>
+            <div class="weight-test" style="font-weight: 500">Weight 500 (Medium)</div>
+            <div class="weight-test" style="font-weight: 600">Weight 600 (Semi Bold)</div>
+            <div class="weight-test" style="font-weight: 700">Weight 700 (Bold)</div>
+            <div class="weight-test" style="font-weight: 800">Weight 800 (Extra Bold)</div>
+            <div class="weight-test" style="font-weight: 900">Weight 900 (Black)</div>
+        </div>
     </main>
     
     <footer>
