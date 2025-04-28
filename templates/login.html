@@ -9,27 +9,23 @@
 </head>
 <body>
     <div class="main-flex">
-        <div class="container-wrapper">
-            <div class="login-container">
-                <div class="login-actions">
-                    <a href="#" class="login-link">
-                        LOGIN
-                        <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
-                    </a>
-                    <a href="#" class="signup-link">
-                        SIGN UP
-                        <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
-                    </a>
+        {% set box_content %}
+            <form class="login-form" method="POST" action="{{ url_for('login') }}">
+                <div class="login-top-group">
+                    <h2 class="login-title">LOGIN</h2>
+                    <input type="text" name="username" placeholder="USERNAME" class="login-input" required>
+                    <input type="password" name="password" placeholder="PASSWORD" class="login-input" required>
                 </div>
-                <img src="{{ url_for('static', filename='images/Leaf.png') }}" class="leaf top-left">
-                <img src="{{ url_for('static', filename='images/leaf2.png') }}" class="leaf bottom-right">
-            </div>
-        </div>
-        <div class="right-panel">
-            <div class="welcome-title">Welcome To</div>
-            <img src="{{ url_for('static', filename='images/Logo_MoodBrewer 1.png') }}" class="logo-img" alt="Mood Brewer Logo">
-            <div class="subtitle">A Caffeine Tracker Website</div>
-        </div>
+                <div class="login-bottom-group">
+                    <button type="submit" class="login-btn">LOGIN</button>
+                    <div class="signup-text">
+                        NO ACCOUNT? <a href="{{ url_for('signup') }}">SIGN UP HERE!</a>
+                    </div>
+                </div>
+            </form>
+        {% endset %}
+        {% include 'components/container_box.html' %}
+        {% include 'components/logo_panel.html' %}
     </div>
 </body>
 </html> 
