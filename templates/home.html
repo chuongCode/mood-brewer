@@ -12,7 +12,7 @@
         {% set box_content %}
             <img src="{{ url_for('static', filename='images/Asset_Cafe 1.png') }}" class="cafe-image" alt="Cafe">
             <div class="login-actions">
-                <a href="#" class="login-link">
+                <a href="{{ url_for('login') }}" class="login-link">
                     LOGIN
                     <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
                 </a>
