@@ -5,7 +5,8 @@
     min-width: 400px;
     display: flex;
     height: calc(100vh - 40px);
-    contain: layout paint;
+    position: relative;
+    overflow: visible;
 }
 
 .login-container {
@@ -20,8 +21,17 @@
     justify-content: flex-end;
     z-index: 0;
     padding: 40px 32px 40px 32px;
-    contain: layout paint;
-    visibility: hidden;
+    overflow: visible;
+    isolation: isolate;
+}
+
+.login-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: inherit;
+    z-index: -1;
 }
 
 .login-container.loaded {
@@ -49,6 +59,7 @@
     width: 175px;
     z-index: 10;
     pointer-events: none;
+    transform: translateZ(0);
 }
 
 .leaf.top-left {
