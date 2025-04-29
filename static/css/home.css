@@ -26,11 +26,10 @@ h2{
     border-radius: 10px;
     box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
     width: 50%;
-    height: 85%;
+    height: 100%;
     position: absolute;
     margin-left: 2rem;
     margin-right: 2rem;
-    margin-top: -20px;
 }
 
 .drink-list {
