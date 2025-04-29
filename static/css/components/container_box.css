@@ -71,3 +71,35 @@
     bottom: -40px;
     right: -40px;
 }
+
+@media (max-width: 768px) {
+    .container-wrapper {
+        margin: 20px;
+        width: 100%;
+        min-width: unset;
+        height: auto;
+        min-height: 400px;
+    }
+
+    .login-container {
+        padding: 20px;
+        min-height: 400px;
+        height: auto;
+    }
+}
+
+@media (max-height: 600px) {
+    .container-wrapper {
+        margin: 10px;
+        height: auto;
+        min-height: 450px;
+        position: relative;
+    }
+
+    .login-container {
+        padding: 15px;
+        min-height: 450px;
+        height: auto;
+        position: relative;
+    }
+}

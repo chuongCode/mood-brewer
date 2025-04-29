@@ -25,4 +25,14 @@ body {
         min-width: unset; 
         margin-top: 40px; 
     }
+}
+
+@media (max-height: 600px) {
+    body {
+        overflow-y: auto;
+    }
+    
+    .main-flex {
+        height: auto;
+    }
 } 
