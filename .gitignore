@@ -37,4 +37,4 @@ instance/
 .idea/
 .vscode/
 *.swp
-*.swo 
+*.swo venv/

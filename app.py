@@ -8,7 +8,26 @@ def landing():
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html')
+    #Emmie's drinks testing
+    drinks = [
+        {"name": "Espresso", "caffeine": 10, "mood_color": "sleepy"},
+        {"name": "Latte", "caffeine": 80, "mood_color": "okay"},
+        {"name": "Green Tea", "caffeine": 30, "mood_color": "energized"},
+        {"name": "Celcius", "caffeine": 20, "mood_color": "alive"},
+        {"name": "Brown Sugar Shaken Expresso", "caffeine": 10, "mood_color": "tired"},
+        {"name": "Matcha Latte", "caffeine": 40, "mood_color": "energized"}
+    ]
+    
+    caffeine_goal = 400
+    caffeine_intake = sum(drink["caffeine"] for drink in drinks)
+    percentage = round((caffeine_intake / caffeine_goal) * 100)
+
+    return render_template("home.html",
+        drinks=drinks,
+        caffeine_intake=caffeine_intake,
+        caffeine_goal=caffeine_goal,
+        percentage=percentage
+    )
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

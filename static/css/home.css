@@ -9,6 +9,8 @@
 body {
     font-family: 'Skia', Arial, sans-serif;
     color: #333;
+    background-color: #F6F1E7;
+
 }
 
 h2{
@@ -17,6 +19,9 @@ h2{
 }
 
 .drinks-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #fffaf3;
     border-radius: 10px;
     box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
@@ -25,19 +30,144 @@ h2{
     position: absolute;
     margin-left: 2rem;
     margin-right: 2rem;
-    margin-top: -25px;
+    margin-top: -20px;
+}
+
+.drink-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 2rem;
 }
 
 .drink-entry{
-    font-size: 20px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #DFCCAF;
-    width: 75%;
-    height: 60%;
-    padding: 30px;
-    margin-left: 4rem;
+    justify-content: space-between;
+    background-color: #dfccaf;
+    padding: 20px 40px;
+    margin: 1.5rem auto;
     border-radius: 10px;
-    margin: 1rem;
+    width: 90%;
+    box-sizing: border-box;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.drink-entry span{
+    flex: 1;
+}
+
+.drink-name {
+    flex: 2;
+}
+
+.drink-mg {
+    flex: 1;
+    text-align: right;
+}
+
+.caffeine-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #291313;
+    margin-left: 1rem;
+    flex-shrink: 0; 
+}
+
+.sleepy {
+    background-color: #E95151;
+}
+
+.tired {
+    background-color: #E99D51;
+}
+
+.okay {
+    background-color: #E9D051;
+}
+
+.alive {
+    background-color: #BEE334;
+}
+
+.energized{
+    background-color: #38C84B;
+}
+
+.actions{
+    margin-top: auto;
+    font-size: 30px;
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;      
+    margin-bottom: 1.5rem;
+}
+
+.actions a {
+    color: #291313; 
+    text-decoration: none; 
+    transition: text-decoration 0.2s ease;
+}
+  
+.actions a:hover {
+    text-decoration: underline;
+    color: #291313; 
+}
+
+.leaf-corner {
+    position: absolute;
+    bottom: -35px;
+    right: -30px;
+    width: 175px;
+    opacity: 1; 
+    pointer-events: none;
+}
+
+.goal-panel {
+    margin-left: 50%;
+}
+
+.circular-fill-container {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0e8dd;
+    border: 3px solid #3c2c28;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.circular-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background-color: #3c2c28;
+    transition: height 1.2s ease-out;
+    z-index: 1;
+}
+  
+.goal-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000000;
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    background-color: #F6F1E7;
+    border: 3px solid #291313;
+  
+    display: flex;              
+    justify-content: center;     
+    align-items: center;   
+    flex-direction: column; 
 }
