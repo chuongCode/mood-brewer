@@ -9,7 +9,7 @@ body {
 }
 
 .profile-info {
-    position: relative;  /* Changed from absolute to relative */
+    position: relative;
     padding-top: 2rem;
     padding-left: 2rem;
     margin: 0;
@@ -45,13 +45,31 @@ body {
     right: 25px;
     bottom: 25px;
     left: 50%;
-    background: linear-gradient(135deg, #8B6B4E, #5A4030);
+    background: linear-gradient(to bottom, #6F4436 0%, #291313 100%);
     border-radius: 15px;
     padding: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: visible;
+    isolation: isolate;
+}
+
+.profile-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/coffeebackground.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    pointer-events: none;
+    will-change: transform;
+    border-radius: 15px;
 }
 
 .coffee-image {
@@ -60,6 +78,8 @@ body {
     max-height: 80vh;  /* Prevent image from being too tall */
     object-fit: contain;
     animation: floatUpDown 2s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
 }
 
 @keyframes floatUpDown {
@@ -71,7 +91,7 @@ body {
 .leaf {
     position: absolute;
     width: 175px;
-    z-index: 10;
+    z-index: 3;
     pointer-events: none;
 }
 
@@ -82,17 +102,17 @@ body {
 
 .leaf.bottom-right {
     bottom: -40px;
-    right: -40px;
+    right: -30px;
 }
 
 .profile-actions {
-    position: fixed;  /* Changed to fixed */
+    position: fixed;
     bottom: 50px;
     left: 30px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    z-index: 10;  /* Ensure buttons are above other elements */
+    z-index: 10;
 }
 
 .btn-done, .btn-cancel {

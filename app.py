@@ -136,5 +136,18 @@ def logout():
 def profile():
     return render_template('profile.html')
 
+@app.route('/caff-stat')
+@login_required
+def caff_stat():
+    caffeine_data = [
+        {"date": "11/1/2025", "total_mg": "350 MG", "overall_mood": "Okay"},
+        {"date": "11/1/2025", "total_mg": "150 MG", "overall_mood": "Alive"},
+        {"date": "11/1/2025", "total_mg": "100 MG", "overall_mood": "Okay"},
+        {"date": "11/1/2025", "total_mg": "400 MG", "overall_mood": "Energized"},
+        {"date": "11/1/2025", "total_mg": "150 MG", "overall_mood": "Tired"},
+        {"date": "11/1/2025", "total_mg": "100 MG", "overall_mood": "Sleepy"}
+    ]
+    return render_template('caff_stat.html', caffeine_data=caffeine_data)
+
 if __name__ == '__main__':
     app.run(debug=True)

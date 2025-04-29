@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Create a new image object to preload the background
     const bgImage = new Image();
-    bgImage.src = '/static/images/loginbackground.png';
+    bgImage.src = '/static/images/coffeebackground.png';
     
     // Show the container once the image is loaded
     bgImage.onload = function() {

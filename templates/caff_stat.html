@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% from 'components/nav.html' import nav %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/caff-stat.css') }}">
+{% endblock %}
+
+{% block content %}
+{{ nav() }}
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Total MG of Caffeine</th>
+                <th>Overall Mood</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in caffeine_data %}
+            <tr>
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.total_mg }}</td>
+                <td>{{ entry.overall_mood }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %} 
