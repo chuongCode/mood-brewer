@@ -98,28 +98,6 @@
     gap: 20px;
 }
 
-.arrow-icon {
-    width: 110px;
-    height: 40px;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.login-link:hover .arrow-icon,
-.signup-link:hover .arrow-icon {
-    opacity: 1;
-    animation: arrowBounce 1s infinite;
-}
-
-@keyframes arrowBounce {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(10px);
-    }
-}
-
 .login-link:hover, .signup-link:hover {
     color: #fff2dc;
 } 
