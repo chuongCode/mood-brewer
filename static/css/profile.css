@@ -1,0 +1,93 @@
+body {
+    background-color: #F6F1E7;
+}
+
+.profile-container {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    font-family: 'Skia', Arial, sans-serif;
+}
+
+.profile-info {
+    flex: 1;
+    padding: 2rem;
+}
+
+.info-field {
+    margin-bottom: 1.5rem;
+}
+
+.info-field label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #3A2618;
+    margin-right: 0.5rem;
+    font-family: 'Skia', Arial, sans-serif;
+}
+
+.info-field span {
+    font-size: 1.1rem;
+    color: #5A4030;
+    font-family: 'Skia', Arial, sans-serif;
+}
+
+.profile-image-container {
+    flex: 1;
+    background: linear-gradient(135deg, #8B6B4E, #5A4030);
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.coffee-image {
+    max-width: 80%;
+    height: auto;
+}
+
+.leaf {
+    position: absolute;
+    width: 175px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.leaf.top-left {
+    top: -40px;
+    left: -40px;
+}
+
+.leaf.bottom-right {
+    bottom: -40px;
+    right: -40px;
+}
+
+.profile-actions {
+    margin-top: 2rem;
+}
+
+.btn-done, .btn-cancel {
+    padding: 0.5rem 1.5rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Skia', Arial, sans-serif;
+}
+
+.btn-done {
+    background-color: #3A2618;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #E5D3B3;
+    color: #3A2618;
+} 

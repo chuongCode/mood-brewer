@@ -1,7 +1,7 @@
 /* Base styles */
 /* Custom Fonts */
 @font-face {
-    font-family: 'CustomFont';
+    font-family: 'Skia';
     src: url('../fonts/Skia CC Black.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Skia', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
     max-width: 1200px;
@@ -57,7 +57,7 @@ main {
 h1 {
     margin-bottom: 20px;
     color: #007bff;
-    font-family: 'CustomFont', Arial, sans-serif;
+    font-family: 'Skia', Arial, sans-serif;
     font-weight: black;
 }
 

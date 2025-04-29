@@ -59,7 +59,7 @@
 }
 
 .login-input::placeholder {
-    font-family: 'CustomFont', Arial, sans-serif;
+    font-family: 'Skia', Arial, sans-serif;
     font-size: 1.4rem;
     color: #291313;
     opacity: .5;
@@ -68,7 +68,7 @@
 }
 
 .login-btn {
-    font-family: 'CustomFont', Arial, sans-serif;
+    font-family: 'Skia', Arial, sans-serif;
     width: 40%;
     min-width: 120px;
     max-width: 180px;

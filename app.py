@@ -37,5 +37,11 @@ def signup():
     
     return render_template('signup.html')
 
+@app.route('/profile')
+def profile():
+    # TODO: Add authentication check
+    # TODO: Fetch user data from database
+    return render_template('profile.html')
+
 if __name__ == '__main__':
     app.run(debug=True) 
