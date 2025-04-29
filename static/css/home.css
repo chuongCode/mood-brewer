@@ -1,0 +1,43 @@
+
+@font-face {
+    font-family: 'Skia';
+    src: url('../fonts/Skia CC Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Skia', Arial, sans-serif;
+    color: #333;
+}
+
+h2{
+    font-size: 40px;
+    text-align: center;
+}
+
+.drinks-panel {
+    background-color: #fffaf3;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+    width: 50%;
+    height: 85%;
+    position: absolute;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: -25px;
+}
+
+.drink-entry{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DFCCAF;
+    width: 75%;
+    height: 60%;
+    padding: 30px;
+    margin-left: 4rem;
+    border-radius: 10px;
+    margin: 1rem;
+}
