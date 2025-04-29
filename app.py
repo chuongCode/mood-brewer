@@ -95,13 +95,6 @@ def profile():
         session.pop('user_id', None)
         return redirect(url_for('login'))
 
-    if request.method == 'POST':
-        goal = request.form.get('caff_goal')
-        if goal and goal.isdigit():
-            user.caff_goal = int(goal)
-            db.session.commit()
-            return redirect(url_for('home'))
-
     return render_template('profile.html', user=user)
 
 @app.route('/logout')
