@@ -1,13 +1,25 @@
-.cafe-image {
-    width: 500px;
-    height: auto;
+.cafe-image-container {
     position: absolute;
-    left: 15%;
-    top: 15%;
-    transform: translate(-100%, -65%);
-    z-index: 2;
+    height: calc(100vh - 15vh);
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.cafe-image {
+    width: min(600px, 45vw);
+    height: auto;
+    max-height: calc(80vh - 15vh);
+    object-fit: contain;
     animation: floatUpDown 2s ease-in-out infinite;
-} 
+}
 
 @keyframes floatUpDown {
     0%   { transform: translateY(0); }
@@ -36,3 +48,33 @@
         transform: translateX(10px);
     }
 }
+
+.login-actions {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2;
+}
+
+.login-link, .signup-link {
+    color: #DFCCAF;
+    font-family: 'Skia', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 3rem;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.login-link:hover, .signup-link:hover {
+    color: #fff2dc;
+} 

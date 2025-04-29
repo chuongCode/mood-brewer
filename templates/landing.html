@@ -13,7 +13,9 @@
 <body>
     <div class="main-flex">
         {% set box_content %}
-            <img src="{{ url_for('static', filename='images/Asset_Cafe 1.png') }}" class="cafe-image" alt="Cafe">
+            <div class="cafe-image-container">
+                <img src="{{ url_for('static', filename='images/Asset_Cafe 1.png') }}" class="cafe-image" alt="Cafe">
+            </div>
             <div class="login-actions">
                 <a href="{{ url_for('login') }}" class="login-link">
                     LOGIN
