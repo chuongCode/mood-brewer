@@ -1,0 +1,15 @@
+{% macro nav() %}
+<nav class="nav-container">
+    <div class="logo">
+        <a href="/">
+            <img src="{{ url_for('static', filename='images/Logo_MoodBrewer.png') }}" alt="Mood Brewer Logo">
+        </a>
+    </div>
+    <div class="nav-links">
+        <a href="/" class="nav-link {{ 'active' if request.endpoint == 'home' }}">HOME</a>
+        <a href="/caff-stat" class="nav-link {{ 'active' if request.endpoint == 'caff_stat' }}">CAFF STAT</a>
+        <a href="/profile" class="nav-link {{ 'active' if request.endpoint == 'profile' }}">PROFILE</a>
+        <a href="/logout" class="nav-link {{ 'active' if request.endpoint == 'logout' }}">LOGOUT</a>
+    </div>
+</nav>
+{% endmacro %} 

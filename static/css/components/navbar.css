@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../fonts/Skia CC Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem 0.5rem 0.5rem;
+    background-color: #E5D3B3;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+}
+
+.logo img {
+    width: auto;
+    height: auto;
+    max-height: 120px; /* Just a safeguard to prevent extreme sizes */
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-family: 'CustomFont', Arial, sans-serif;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #8B6B4E;
+}
+
+.nav-link.active {
+    text-decoration: underline;
+    text-underline-offset: 8px; /* Space between text and underline */
+    text-decoration-thickness: 3px; /* Thickness of the underline */
+} 
