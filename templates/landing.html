@@ -17,14 +17,25 @@
                 <img src="{{ url_for('static', filename='images/Asset_Cafe 1.png') }}" class="cafe-image" alt="Cafe">
             </div>
             <div class="login-actions">
-                <a href="{{ url_for('login') }}" class="login-link">
-                    LOGIN
-                    <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
-                </a>
-                <a href="{{ url_for('signup') }}" class="signup-link">
-                    SIGN UP
-                    <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
-                </a>
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('home') }}" class="login-link">
+                        GO TO HOME
+                        <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="signup-link">
+                        LOGOUT
+                        <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="login-link">
+                        LOGIN
+                        <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
+                    </a>
+                    <a href="{{ url_for('signup') }}" class="signup-link">
+                        SIGN UP
+                        <img src="{{ url_for('static', filename='images/arrow.svg') }}" class="arrow-icon" alt="arrow">
+                    </a>
+                {% endif %}
             </div>
         {% endset %}
         {% include 'components/container_box.html' %}

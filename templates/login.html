@@ -18,6 +18,13 @@
                     <h2 class="login-title">LOGIN</h2>
                     <input type="text" name="username" placeholder="USERNAME" class="login-input" required>
                     <input type="password" name="password" placeholder="PASSWORD" class="login-input" required>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="flash-message">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                 </div>
                 <div class="login-bottom-group">
                     <button type="submit" class="login-btn">LOGIN</button>

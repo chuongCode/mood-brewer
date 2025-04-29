@@ -38,3 +38,8 @@ instance/
 .vscode/
 *.swp
 *.swo venv/
+
+# Environment variables
+.env
+.env.*
+!.env.example

@@ -71,4 +71,11 @@ footer {
     padding: 20px 0;
     margin-top: 30px;
     border-top: 1px solid #eee;
+}
+
+.flash-message {
+    color: #ff4444;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
 } 

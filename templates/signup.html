@@ -19,6 +19,13 @@
                     <input type="text" name="username" placeholder="USERNAME" class="signup-input" required>
                     <input type="email" name="email" placeholder="EMAIL" class="signup-input" required>
                     <input type="password" name="password" placeholder="PASSWORD" class="signup-input" required>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="flash-message">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                 </div>
                 <div class="signup-bottom-group">
                     <button type="submit" class="signup-btn">SIGN UP</button>
