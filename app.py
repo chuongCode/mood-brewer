@@ -58,17 +58,24 @@ def landing():
 @app.route('/home')
 @login_required
 def home():
-    #Emmie's drinks testing
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    user = User.query.get(session['user_id'])
+
+    
+    caffeine_goal = user.caff_goal if user and user.caff_goal else 400
+
+    #Emmie testing
     drinks = [
         {"name": "Espresso", "caffeine": 10, "mood_color": "sleepy"},
         {"name": "Latte", "caffeine": 80, "mood_color": "okay"},
         {"name": "Green Tea", "caffeine": 30, "mood_color": "energized"},
         {"name": "Celcius", "caffeine": 20, "mood_color": "alive"},
-        {"name": "Brown Sugar Shaken Expresso", "caffeine": 10, "mood_color": "tired"},
+        {"name": "Brown Sugar Shaken Espresso", "caffeine": 10, "mood_color": "tired"},
         {"name": "Matcha Latte", "caffeine": 40, "mood_color": "energized"}
     ]
-    
-    caffeine_goal = 400
+
     caffeine_intake = sum(drink["caffeine"] for drink in drinks)
     percentage = round((caffeine_intake / caffeine_goal) * 100)
 
@@ -98,7 +105,7 @@ def login():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        username = request.form.get('username')
+        name = request.form.get('username')
         email = request.form.get('email')
         password = request.form.get('password')
         
@@ -150,4 +157,6 @@ def caff_stat():
     return render_template('caff_stat.html', caffeine_data=caffeine_data)
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
