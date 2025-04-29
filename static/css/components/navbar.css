@@ -6,35 +6,45 @@
 }
 
 .nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem 0.5rem 0.5rem;
+    padding: 1vh 2rem 1vh 2rem;
     background-color: #E5D3B3;
+    height: 15vh;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .logo {
     display: flex;
     align-items: center;
     margin-left: 0;
+    height: 100%;
 }
 
 .logo a {
     display: flex;
     align-items: center;
     padding-left: 0;
+    height: 100%;
 }
 
 .logo img {
+    height: 90%;
     width: auto;
-    height: auto;
-    max-height: 120px; /* Just a safeguard to prevent extreme sizes */
     object-fit: contain;
 }
 
 .nav-links {
     display: flex;
     gap: 2rem;
+    height: 100%;
+    align-items: center;
 }
 
 .nav-link {
@@ -42,7 +52,7 @@
     color: #000000;
     text-decoration: none;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 2.5vh, 2rem); /* Responsive font size */
     letter-spacing: 0.5px;
     position: relative;
 }
