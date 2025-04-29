@@ -9,43 +9,40 @@
 
 {% block content %}
 {{ nav() }}
-
 <body>
     <div class="drinks-panel">
         <h2>Today's Drinks:</h2>
         <div class="drink-list">
+            {% for drink in drinks %}
             <div class="drink-entry">
-                <span>Drink Name</span>
-                <span>MG of Caffeine</span>
-                <div class="caffeine-dot red"></div>
-              </div>
+                <span>{{ drink.name }}</span>
+                <span>{{ drink.caffeine }}mg</span>
+                <div class="caffeine-dot {{ drink.mood_color }}" title="{{ drink.mood }}"></div>
+            </div>
+            {% endfor %}
         </div>
-        <div class="drink-list">
-            <div class="drink-entry">
-                <span>Drink Name</span>
-                <span>MG of Caffeine</span>
-                <div class="caffeine-dot red"></div>
-              </div>
-        </div>
-        <div class="drink-list">
-            <div class="drink-entry">
-                <span>Drink Name</span>
-                <span>MG of Caffeine</span>
-                <div class="caffeine-dot red"></div>
-              </div>
-        </div>
-        <div class="drink-list">
-            <div class="drink-entry">
-                <span>Drink Name</span>
-                <span>MG of Caffeine</span>
-                <div class="caffeine-dot red"></div>
-              </div>
-        </div>
+        
         <div class="actions">
             <a href="#" class="add-link">Add Drink</a>
             <a href="#" class="finish-link">Finish the Day</a>
         </div>
+    
+        <img src="{{ url_for('static', filename='images/leaf3.png') }}" class="leaf-corner" alt="Leaf">
+    
     </div>
+    
+    <div class="goal-panel">
+        <h2>Today's Caffeine Goal</h2>
+        <div class="circular-fill-container">
+          <div class="circular-fill" 
+               id="caffeine-fill" 
+               data-intake="{{ caffeine_intake }}" 
+               data-goal="{{ caffeine_goal }}"></div>
+          <div class="goal-text">{{ caffeine_intake }}/{{ caffeine_goal }}<br>MG</div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/caff_bar.js') }}"></script>
 </body>
 
 {% endblock %}
