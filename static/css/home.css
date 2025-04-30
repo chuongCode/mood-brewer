@@ -286,3 +286,41 @@ h2{
     margin: 2rem;
     font-style: italic;
 }
+
+.flash-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.flash-message {
+    background-color: #3c2c28;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    opacity: 0;
+    transform: translateY(100px);
+    animation: flashMessage 3s ease-out forwards;
+}
+
+@keyframes flashMessage {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}

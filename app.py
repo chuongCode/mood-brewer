@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -161,6 +161,7 @@ def signup():
 @app.route('/logout')
 @login_required
 def logout():
+    session.clear()
     logout_user()
     return redirect(url_for('landing'))
 
@@ -209,11 +210,11 @@ def adddrink():
         try:
             db.session.add(new_drink)
             db.session.commit()
-            flash('Drink added successfully!')
+            flash('Drink added successfully!', 'success')
             return redirect(url_for('home'))
         except Exception as e:
             db.session.rollback()
-            flash('An error occurred while adding the drink')
+            flash('An error occurred while adding the drink', 'error')
     
     return render_template('adddrink.html')
 
