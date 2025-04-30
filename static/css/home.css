@@ -278,3 +278,11 @@ h2{
     align-items: center;   
     flex-direction: column; 
 }
+
+.no-drinks-message {
+    text-align: center;
+    color: #666;
+    font-size: 24px;
+    margin: 2rem;
+    font-style: italic;
+}

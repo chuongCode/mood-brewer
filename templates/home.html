@@ -15,13 +15,17 @@
         <img src="{{ url_for('static', filename='images/paintstroke.png') }}" class="paintstroke-top-right" alt="Paintstroke">
         <h2>Today's Drinks:</h2>
         <div class="drink-list">
-            {% for drink in drinks %}
-            <div class="drink-entry">
-                <span class="drink-name" data-name="{{ drink.name }}">{{ drink.name }}</span>
-                <span class="drink-mg">{{ drink.caffeine }}mg</span>
-                <div class="caffeine-dot {{ drink.mood_color }}" title="{{ drink.mood }}"></div>
-            </div>
-            {% endfor %}
+            {% if drinks %}
+                {% for drink in drinks %}
+                <div class="drink-entry">
+                    <span class="drink-name" data-name="{{ drink.name }}">{{ drink.name }}</span>
+                    <span class="drink-mg">{{ drink.caffeine }}mg</span>
+                    <div class="caffeine-dot {{ drink.mood_color }}" title="{{ drink.mood }}"></div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="no-drinks-message">No drinks to display right now :(</div>
+            {% endif %}
         </div>
         
         <div class="actions">
