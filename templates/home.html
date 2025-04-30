@@ -23,8 +23,8 @@
         </div>
         
         <div class="actions">
-            <a href="{{ url_for('adddrink') }}" class="add-link">Add Drink</a>
-            <a href="#" class="finish-link">Finish the Day</a>
+            <a href="{{ url_for('adddrink') }}" class="add-link">Add Drink<img src="{{ url_for('static', filename='images/arrow2.svg') }}" class="arrow-icon" alt="Arrow"></a>
+            <a href="#" class="finish-link">Finish the Day<img src="{{ url_for('static', filename='images/arrow2.svg') }}" class="arrow-icon" alt="Arrow"></a>
         </div>
     
         <img src="{{ url_for('static', filename='images/leaf3.png') }}" class="leaf-corner" alt="Leaf">

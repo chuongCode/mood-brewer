@@ -127,11 +127,35 @@ h2{
     color: #291313; 
     text-decoration: none; 
     transition: text-decoration 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
   
 .actions a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: #291313; 
+}
+
+.arrow-icon {
+    width: 70px;
+    height: 25px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.actions a:hover .arrow-icon {
+    opacity: 1;
+    animation: arrowBounce 1s infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
 }
 
 .leaf-corner {
