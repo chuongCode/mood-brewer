@@ -24,7 +24,9 @@
         
         <div class="actions">
             <a href="{{ url_for('adddrink') }}" class="add-link">Add Drink<img src="{{ url_for('static', filename='images/arrow2.svg') }}" class="arrow-icon" alt="Arrow"></a>
-            <a href="#" class="finish-link">Finish the Day<img src="{{ url_for('static', filename='images/arrow2.svg') }}" class="arrow-icon" alt="Arrow"></a>
+            <form action="{{ url_for('finish_day') }}" method="POST" style="display: inline;">
+                <button type="submit" class="finish-link" style="background: none; border: none; padding: 0; font: inherit; cursor: pointer; color: inherit;">Finish the Day<img src="{{ url_for('static', filename='images/arrow2.svg') }}" class="arrow-icon" alt="Arrow"></button>
+            </form>
         </div>
     
         <img src="{{ url_for('static', filename='images/leaf3.png') }}" class="leaf-corner" alt="Leaf">

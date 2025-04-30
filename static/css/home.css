@@ -9,7 +9,23 @@ body {
     font-family: 'Skia', Arial, sans-serif;
     color: #333;
     background-color: #F6F1E7;
+}
 
+main {
+    position: relative;
+    display: flex;
+    padding-left: 2rem;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 33.33vh;
+    background-color: #E5D3B3;
+    z-index: 0;
 }
 
 h2{
@@ -25,10 +41,10 @@ h2{
     border-radius: 10px;
     box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
     width: 50%;
-    height: 100%;
-    position: absolute;
-    margin-left: 2rem;
+    height: 80vh;
+    position: relative;
     margin-right: 2rem;
+    z-index: 1;
 }
 
 .drink-list {
@@ -149,6 +165,30 @@ h2{
     animation: arrowBounce 1s infinite;
 }
 
+.finish-link {
+    color: #291313; 
+    text-decoration: none; 
+    transition: text-decoration 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.finish-link:hover {
+    text-decoration: none;
+    color: #291313; 
+}
+
+.finish-link:hover .arrow-icon {
+    opacity: 1;
+    animation: arrowBounce 1s infinite;
+}
+
 @keyframes arrowBounce {
     0%, 100% {
         transform: translateX(0);
@@ -168,12 +208,18 @@ h2{
 }
 
 .goal-panel {
-    margin-left: 50%;
+    width: 50%;
+    position: relative;
+    z-index: 1;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .circular-fill-container {
-    width: 450px;
-    height: 450px;
+    width: min(450px, 80%);
+    height: min(450px, 80vw);
     border-radius: 50%;
     position: relative;
     overflow: hidden;
@@ -199,12 +245,12 @@ h2{
     position: relative;
     z-index: 1;
     text-align: center;
-    font-size: 25px;
+    font-size: clamp(18px, 3vw, 25px);
     font-weight: bold;
     color: #000000;
     border-radius: 50%;
-    width: 175px;
-    height: 175px;
+    width: min(175px, 40%);
+    height: min(175px, 40%);
     background-color: #F6F1E7;
     border: 3px solid #291313;
   

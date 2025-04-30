@@ -217,6 +217,75 @@ def adddrink():
     
     return render_template('adddrink.html')
 
+# Helper function to convert mood to number
+def mood_to_number(mood):
+    mood_map = {
+        'Sleepy': 1,
+        'Tired': 2,
+        'Okay': 3,
+        'Alive': 4,
+        'Energized': 5
+    }
+    return mood_map.get(mood, 3)  # Default to 3 (Okay) if mood not found
+
+# Helper function to convert number to mood
+def number_to_mood(number):
+    mood_map = {
+        1: 'Sleepy',
+        2: 'Tired',
+        3: 'Okay',
+        4: 'Alive',
+        5: 'Energized'
+    }
+    return mood_map.get(number, 'Okay')  # Default to 'Okay' if number not found
+
+@app.route('/finish_day', methods=['POST'])
+@login_required
+def finish_day():
+    today = datetime.now().date()
+    
+    # Get all drinks for today
+    today_drinks = DrinkEntry.query.filter_by(
+        user_id=current_user.id,
+        date=today
+    ).all()
+    
+    if not today_drinks:
+        flash('No drinks to summarize for today!')
+        return redirect(url_for('home'))
+    
+    # Calculate total caffeine
+    total_caffeine = sum(drink.caffeine_amount for drink in today_drinks)
+    
+    # Calculate average mood
+    mood_numbers = [mood_to_number(drink.mood) for drink in today_drinks]
+    average_mood_number = round(sum(mood_numbers) / len(mood_numbers))
+    average_mood = number_to_mood(average_mood_number)
+    
+    # Create new daily summary
+    new_summary = DailySummary(
+        user_id=current_user.id,
+        date=today,
+        total_caffeine=total_caffeine,
+        average_mood=average_mood
+    )
+    
+    try:
+        # Add the summary
+        db.session.add(new_summary)
+        
+        # Delete today's drinks
+        for drink in today_drinks:
+            db.session.delete(drink)
+        
+        db.session.commit()
+        flash('Day completed successfully!')
+    except Exception as e:
+        db.session.rollback()
+        flash('An error occurred while completing the day')
+    
+    return redirect(url_for('home'))
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
