@@ -15,7 +15,6 @@ body {
     background-color: #F6F1E7;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     border-radius: 10px;
     box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
     max-width: 1200px;
@@ -23,6 +22,12 @@ body {
     margin-left: 2rem;
     margin-right: 2rem;
     padding: 2rem;
+}
+
+.add-drink-panel form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .coffee-image{
@@ -105,23 +110,75 @@ h1 {
 
 .mood-button.sleepy {
     border-color: #d9534f;
-   
+    background: none;
 }
+
 .mood-button.tired {
     border-color: #f0ad4e;
-   
+    background: none;
 }
+
 .mood-button.okay {
     border-color: #f7e967;
-   
+    background: none;
 }
+
 .mood-button.alive {
     border-color: #bada55;
-   
+    background: none;
 }
+
 .mood-button.energized {
     border-color: #4caf50;
-    
+    background: none;
+}
+
+.mood-button input[type="radio"]:checked ~ span {
+    background: none;
+}
+
+.mood-button.sleepy input[type="radio"]:checked ~ span {
+    background: none;
+}
+
+.mood-button.tired input[type="radio"]:checked ~ span {
+    background: none;
+}
+
+.mood-button.okay input[type="radio"]:checked ~ span {
+    background: none;
+}
+
+.mood-button.alive input[type="radio"]:checked ~ span {
+    background: none;
+}
+
+.mood-button.energized input[type="radio"]:checked ~ span {
+    background: none;
+}
+
+.mood-button.sleepy input[type="radio"]:checked {
+    background: none;
+}
+
+.mood-button.sleepy:has(input[type="radio"]:checked) {
+    background-color: #d9534f;
+}
+
+.mood-button.tired:has(input[type="radio"]:checked) {
+    background-color: #f0ad4e;
+}
+
+.mood-button.okay:has(input[type="radio"]:checked) {
+    background-color: #f7e967;
+}
+
+.mood-button.alive:has(input[type="radio"]:checked) {
+    background-color: #bada55;
+}
+
+.mood-button.energized:has(input[type="radio"]:checked) {
+    background-color: #4caf50;
 }
 
 .mood-button:hover {
@@ -129,20 +186,60 @@ h1 {
 }
 
 .drink-actions {
-    margin-top: auto;
-    font-size: 30px;
-    margin-left: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;      
-    margin-bottom: 1.5rem;
+    gap: 8px;
+    margin-top: auto;
+    padding: 0 20px;
 }
 
 .drink-actions a {
     color: #291313;  
     text-decoration: none;  
     transition: text-decoration 0.2s ease;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
+
 .drink-actions a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+.drink-actions button {
+    background: none;
+    border: none;
+    color: #291313;
+    font-size: 30px;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.arrow-icon {
+    width: 70px;
+    height: 25px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.drink-actions a:hover .arrow-icon,
+.drink-actions button:hover .arrow-icon {
+    opacity: 1;
+    animation: arrowBounce 1s infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
 }

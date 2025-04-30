@@ -3,7 +3,7 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/caff-stat.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/caff_stat.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -18,13 +18,21 @@
             </tr>
         </thead>
         <tbody>
-            {% for entry in caffeine_data %}
-            <tr>
-                <td>{{ entry.date }}</td>
-                <td>{{ entry.total_mg }}</td>
-                <td>{{ entry.overall_mood }}</td>
-            </tr>
-            {% endfor %}
+            {% if caffeine_data %}
+                {% for entry in caffeine_data %}
+                <tr>
+                    <td>{{ entry.date }}</td>
+                    <td>{{ entry.total_mg }}</td>
+                    <td>{{ entry.overall_mood }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3" class="no-stats-message">
+                        No stats to show here! Have some coffee :)
+                    </td>
+                </tr>
+            {% endif %}
         </tbody>
     </table>
 </div>

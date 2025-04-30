@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import secrets
 from dotenv import load_dotenv
+from datetime import datetime
 
 # Setup .env file
 def create_env_file():
@@ -84,24 +85,31 @@ def home():
     user = current_user
     caffeine_goal = user.caffeine_goal if user and user.caffeine_goal else 400
 
-    #Emmie testing
-    drinks = [
-        {"name": "Espresso", "caffeine": 10, "mood_color": "sleepy"},
-        {"name": "Latte", "caffeine": 80, "mood_color": "okay"},
-        {"name": "Green Tea", "caffeine": 30, "mood_color": "energized"},
-        {"name": "Celcius", "caffeine": 20, "mood_color": "alive"},
-        {"name": "Brown Sugar Shaken Espresso", "caffeine": 10, "mood_color": "tired"},
-        {"name": "Matcha Latte", "caffeine": 40, "mood_color": "energized"}
+    # Get today's drinks for the current user
+    today = datetime.now().date()
+    drinks = DrinkEntry.query.filter_by(
+        user_id=current_user.id,
+        date=today
+    ).all()
+
+    # Format drinks for display
+    formatted_drinks = [
+        {
+            "name": drink.drink_name,
+            "caffeine": drink.caffeine_amount,
+            "mood_color": drink.mood.lower()  # This will match our CSS classes (sleepy, tired, etc.)
+        }
+        for drink in drinks
     ]
 
-    caffeine_intake = sum(drink["caffeine"] for drink in drinks)
-    percentage = round((caffeine_intake / caffeine_goal) * 100)
+    # Calculate total caffeine intake for today
+    caffeine_intake = sum(drink.caffeine_amount for drink in drinks)
 
     return render_template("home.html",
-        drinks=drinks,
+        drinks=formatted_drinks,
         caffeine_intake=caffeine_intake,
         caffeine_goal=caffeine_goal,
-        percentage=percentage
+        percentage=round((caffeine_intake / caffeine_goal) * 100) if caffeine_goal else 0
     )
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -161,21 +169,52 @@ def logout():
 def profile():
     return render_template('profile.html')
 
-@app.route('/caff-stat')
+@app.route('/caff_stat')
 @login_required
 def caff_stat():
+    # Get daily summaries for the current user, ordered by date descending
+    summaries = DailySummary.query.filter_by(user_id=current_user.id)\
+        .order_by(DailySummary.date.desc())\
+        .all()
+    
+    # Format the data for the template
     caffeine_data = [
-        {"date": "11/1/2025", "total_mg": "350 MG", "overall_mood": "Okay"},
-        {"date": "11/1/2025", "total_mg": "150 MG", "overall_mood": "Alive"},
-        {"date": "11/1/2025", "total_mg": "100 MG", "overall_mood": "Okay"},
-        {"date": "11/1/2025", "total_mg": "400 MG", "overall_mood": "Energized"},
-        {"date": "11/1/2025", "total_mg": "150 MG", "overall_mood": "Tired"},
-        {"date": "11/1/2025", "total_mg": "100 MG", "overall_mood": "Sleepy"}
+        {
+            "date": summary.date.strftime("%m/%d/%Y"),
+            "total_mg": f"{summary.total_caffeine} MG",
+            "overall_mood": summary.average_mood
+        }
+        for summary in summaries
     ]
+    
     return render_template('caff_stat.html', caffeine_data=caffeine_data)
 
-@app.route('/adddrink')
+@app.route('/adddrink', methods=['GET', 'POST'])
+@login_required
 def adddrink():
+    if request.method == 'POST':
+        drink_name = request.form.get('drink_name')
+        caffeine_amount = request.form.get('caffeine_amount')
+        mood = request.form.get('mood')
+        
+        # Create new drink entry
+        new_drink = DrinkEntry(
+            user_id=current_user.id,
+            drink_name=drink_name,
+            caffeine_amount=caffeine_amount,
+            mood=mood,
+            date=datetime.now().date()
+        )
+        
+        try:
+            db.session.add(new_drink)
+            db.session.commit()
+            flash('Drink added successfully!')
+            return redirect(url_for('home'))
+        except Exception as e:
+            db.session.rollback()
+            flash('An error occurred while adding the drink')
+    
     return render_template('adddrink.html')
 
 if __name__ == '__main__':

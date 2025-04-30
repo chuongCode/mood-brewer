@@ -15,8 +15,8 @@
         <div class="drink-list">
             {% for drink in drinks %}
             <div class="drink-entry">
-                <span>{{ drink.name }}</span>
-                <span>{{ drink.caffeine }}mg</span>
+                <span class="drink-name" data-name="{{ drink.name }}">{{ drink.name }}</span>
+                <span class="drink-mg">{{ drink.caffeine }}mg</span>
                 <div class="caffeine-dot {{ drink.mood_color }}" title="{{ drink.mood }}"></div>
             </div>
             {% endfor %}
