@@ -35,6 +35,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(128))
+    caffeine_goal = db.Column(db.Integer, default=400)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -58,13 +59,8 @@ def landing():
 @app.route('/home')
 @login_required
 def home():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-
-    user = User.query.get(session['user_id'])
-
-    
-    caffeine_goal = user.caff_goal if user and user.caff_goal else 400
+    user = current_user
+    caffeine_goal = user.caffeine_goal if user and user.caffeine_goal else 400
 
     #Emmie testing
     drinks = [
@@ -105,7 +101,7 @@ def login():
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        name = request.form.get('username')
+        username = request.form.get('username')
         email = request.form.get('email')
         password = request.form.get('password')
         
