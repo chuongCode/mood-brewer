@@ -200,11 +200,30 @@ h2{
 
 .leaf-corner {
     position: absolute;
-    bottom: -35px;
-    right: -30px;
-    width: 175px;
+    bottom: -5vh;
+    right: -3vw;
+    width: min(175px, 15vw);
     opacity: 1; 
     pointer-events: none;
+}
+
+.paintstroke-top-left {
+    position: absolute;
+    top: -5vh;
+    left: -3vw;
+    width: min(175px, 15vw);
+    opacity: 1;
+    pointer-events: none;
+}
+
+.paintstroke-top-right {
+    position: absolute;
+    top: -5vh;
+    right: -3vw;
+    width: min(175px, 15vw);
+    opacity: 1;
+    pointer-events: none;
+    transform: scaleX(-1);
 }
 
 .goal-panel {

@@ -11,6 +11,8 @@
 {{ nav() }}
 <body>
     <div class="drinks-panel">
+        <img src="{{ url_for('static', filename='images/paintstroke.png') }}" class="paintstroke-top-left" alt="Paintstroke">
+        <img src="{{ url_for('static', filename='images/paintstroke.png') }}" class="paintstroke-top-right" alt="Paintstroke">
         <h2>Today's Drinks:</h2>
         <div class="drink-list">
             {% for drink in drinks %}
