@@ -1,0 +1,148 @@
+body {
+    font-family: 'Skia', Arial, sans-serif;
+    color: #333;
+    background-color: #F6F1E7;
+}
+
+.add-drink-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.add-drink-panel {
+    background-color: #F6F1E7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    height: 70vh;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding: 2rem;
+}
+
+.coffee-image{
+    width: 550px;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+.coffee-image:hover {
+    transform: scale(1.05);
+}
+  
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.drink-input {
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.drink_name,
+.drink_MG {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 7px;
+    background: #F6F1E7;
+    color: #450C02;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    border: 2px solid #8B755D;
+    box-sizing: border-box;
+}
+
+.mood-section {
+    display: flex;
+    font-size: 25px;
+    flex-direction: column;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.mood-options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+.mood-button {
+    padding: 0.75rem 1.25rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 5px solid transparent;
+    transition: all 0.2s ease;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+}
+
+.mood-button input[type="radio"] {
+    display: none;
+}
+
+.mood-button.sleepy {
+    border-color: #d9534f;
+   
+}
+.mood-button.tired {
+    border-color: #f0ad4e;
+   
+}
+.mood-button.okay {
+    border-color: #f7e967;
+   
+}
+.mood-button.alive {
+    border-color: #bada55;
+   
+}
+.mood-button.energized {
+    border-color: #4caf50;
+    
+}
+
+.mood-button:hover {
+    transform: scale(1.05);
+}
+
+.drink-actions {
+    margin-top: auto;
+    font-size: 30px;
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;      
+    margin-bottom: 1.5rem;
+}
+
+.drink-actions a {
+    color: #291313;  
+    text-decoration: none;  
+    transition: text-decoration 0.2s ease;
+}
+.drink-actions a:hover {
+    text-decoration: underline;
+}

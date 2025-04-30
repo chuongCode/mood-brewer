@@ -43,6 +43,28 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+# Tracks each drink a user logs: name, caffeine amount, mood, and date.
+class DrinkEntry(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    drink_name = db.Column(db.String(100), nullable=False)
+    caffeine_amount = db.Column(db.Integer, nullable=False)
+    mood = db.Column(db.String(50), nullable=False)
+    date = db.Column(db.Date, nullable=False)
+
+    user = db.relationship('User', backref=db.backref('drinks', lazy=True))
+
+
+# Daily summary of caffeine intake and mood
+class DailySummary(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    date = db.Column(db.Date, nullable=False)
+    total_caffeine = db.Column(db.Integer, nullable=False)
+    average_mood = db.Column(db.String(50), nullable=False)
+
+    user = db.relationship('User', backref=db.backref('summaries', lazy=True))
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -151,6 +173,10 @@ def caff_stat():
         {"date": "11/1/2025", "total_mg": "100 MG", "overall_mood": "Sleepy"}
     ]
     return render_template('caff_stat.html', caffeine_data=caffeine_data)
+
+@app.route('/adddrink')
+def adddrink():
+    return render_template('adddrink.html')
 
 if __name__ == '__main__':
     with app.app_context():

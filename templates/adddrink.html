@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% from 'components/nav.html' import nav %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/navbar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/caff-stat.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/adddrink.css') }}">
+{% endblock %}
+
+{% block content %}
+{{ nav() }}
+
+<body>
+  <div class="add-drink-container">
+    <div class="add-drink-panel">
+      <h1>Add a New Drink!</h1>
+
+      <div class="drink-input">
+        <label>Drink Name</label>
+        <input type="text" name="drink-name" placeholder="Drink Name" class="drink_name" required>
+      </div>
+
+      <div class="drink-input">
+        <label>MG of Caffeine</label>
+        <input type="number" name="caffeine-content" placeholder="0 MG" class="drink_MG" required>
+      </div>
+
+      <div class="mood-section">
+        <label>Mood After Drinking</label>
+        <div class="mood-options">
+          {% for mood in ['Sleepy', 'Tired', 'Okay', 'Alive', 'Energized'] %}
+          <label class="mood-button {{ mood | lower }}">
+            <input type="radio" name="mood" value="{{ mood }}" required>
+            {{ mood }}
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="drink-actions">
+        <a href="#" class="add-link">Add</a>
+        <a href="#" class="finish-link">Finish the Day</a>
+      </div>
+    </div>
+
+   
+    <img src="{{ url_for('static', filename='images/Asset_Coffee.png') }}" class="coffee-image" alt="Coffee">
+  </div>
+</body>
+
+{% endblock %}
