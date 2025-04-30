@@ -4,6 +4,7 @@
     border-spacing: 0 5px;
     margin-top: 0;
     table-layout: fixed;
+    position: relative;
 }
 
 .table th {
@@ -24,6 +25,8 @@
 .container {
     max-width: 1200px;
     padding: 10px 20px;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .table-hover tbody tr:hover {
