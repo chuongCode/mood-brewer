@@ -287,6 +287,18 @@ def finish_day():
     
     return redirect(url_for('home'))
 
+@app.route('/update_goal', methods=['POST'])
+@login_required
+def update_goal():
+    new_goal = request.form.get('caffeine_goal')
+    try:
+        current_user.caffeine_goal = int(new_goal)
+        db.session.commit()
+        flash("Caffeine goal updated successfully!", "success")
+    except ValueError:
+        flash("Invalid input for caffeine goal.", "error")
+    return redirect(url_for('home'))
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

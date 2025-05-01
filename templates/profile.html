@@ -23,25 +23,22 @@
             <label>Password:</label>
             <span>***************</span>
         </div>
-        <div class="info-field">
-            <label>Daily MG Goal:</label>
-            <span>{{ current_user.caffeine_goal }} MG</span>
-        </div>
-        <div class="info-field">
-            <label>Overall Average Mood:</label>
-            <span>Okay</span>
-        </div>
-        
-        <div class="profile-actions">
-            <button class="btn-done">
-                Done
-                <img src="{{ url_for('static', filename='images/arrow2.svg') }}" alt="arrow" class="arrow-icon">
-            </button>
-            <button class="btn-cancel">
-                Cancel
-                <img src="{{ url_for('static', filename='images/arrow2.svg') }}" alt="arrow" class="arrow-icon">
-            </button>
-        </div>
+        <form method="POST" action="{{ url_for('update_goal') }}">
+            <div class="info-field">
+                <label for="caffeine_goal">Daily MG Goal:</label>
+                <input type="number" id="caffeine_goal" name="caffeine_goal" value="{{ current_user.caffeine_goal }}" required>
+            </div>
+            <div class="profile-actions">
+                <button type="submit" class="btn-done">
+                    Done
+                    <img src="{{ url_for('static', filename='images/arrow2.svg') }}" alt="arrow" class="arrow-icon">
+                </button>
+                <a href="{{ url_for('home') }}" class="btn-cancel">
+                    Cancel
+                    <img src="{{ url_for('static', filename='images/arrow2.svg') }}" alt="arrow" class="arrow-icon">
+                </a>
+            </div>
+        </form>
     </div>
     
     <div class="profile-image-container">

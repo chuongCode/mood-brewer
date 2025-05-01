@@ -26,6 +26,19 @@ body {
     align-items: flex-start;
 }
 
+.info-field input {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 7px;
+    background: #F6F1E7;
+    color: #450C02;
+    font-size: 1.1rem;
+    font-weight: 750;
+    margin-bottom: 3px;
+    border: 2px solid #8B755D;
+    box-sizing: border-box;
+}
+
 .info-field label {
     font-weight: bold;
     font-size: 1.5rem;
@@ -154,4 +167,8 @@ body {
 
 .btn-done::after {
     content: none;
+}
+
+.btn-cancel {
+    text-decoration: none;
 }
