@@ -90,5 +90,5 @@ DailySummary Table (DailySummary)
 - Unit tests
 
 ## Group Distribution
-   Emily: I focused mainly on designing the user interface and user experience. I also contributed to backend functionality, particularly implementing the AJAX deletion flow and database interaction logic.
-   Richard Chuong - Project Management, Application Development
+   - Emily: I focused mainly on designing the user interface and user experience. I also contributed to backend functionality, particularly implementing the AJAX deletion flow and database interaction logic.
+   - Richard Chuong - Project Management, Application Development
