@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, jsonify, render_template, request, redirect, url_for, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -106,7 +106,7 @@ def home():
     caffeine_intake = sum(drink.caffeine_amount for drink in drinks)
 
     return render_template("home.html",
-        drinks=formatted_drinks,
+        drinks=drinks,
         caffeine_intake=caffeine_intake,
         caffeine_goal=caffeine_goal,
         percentage=round((caffeine_intake / caffeine_goal) * 100) if caffeine_goal else 0
@@ -298,6 +298,24 @@ def update_goal():
     except ValueError:
         flash("Invalid input for caffeine goal.", "error")
     return redirect(url_for('home'))
+
+@app.route('/delete_drink/<int:drink_id>', methods=['POST'])
+@login_required
+def delete_drink(drink_id):
+    drink = DrinkEntry.query.filter_by(id=drink_id, user_id=current_user.id).first()
+    if drink:
+        db.session.delete(drink)
+        db.session.commit()
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return jsonify(success=True)
+        return redirect(url_for('home'))
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify(success=False), 404
+
+    flash("Drink not found or unauthorized.", "error")
+    return redirect(url_for('home'))
+
 
 if __name__ == '__main__':
     with app.app_context():

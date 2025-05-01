@@ -18,38 +18,39 @@
             {% if drinks %}
                 {% for drink in drinks %}
                 <div class="drink-entry">
-                    <span class="drink-name" data-name="{{ drink.name }}">{{ drink.name }}</span>
-                    <span class="drink-mg">{{ drink.caffeine }}mg</span>
-                    <div class="caffeine-dot {{ drink.mood_color }}" title="{{ drink.mood }}"></div>
+                    <span class="drink-name" data-name="{{ drink.drink_name }}">{{ drink.drink_name }}</span>
+                    <span class="drink-mg">{{ drink.caffeine_amount }}mg</span>
+                    <div class="caffeine-dot {{ drink.mood.lower() }}" title="{{ drink.mood }}"></div>
+                    <button class="delete-button" data-drink-id="{{ drink.id }}">Delete</button>
                 </div>
                 {% endfor %}
             {% else %}
                 <div class="no-drinks-message">No drinks to display right now :(</div>
             {% endif %}
         </div>
-        
+
         <div class="actions">
             <a href="{{ url_for('adddrink') }}" class="add-link">Add Drink<img src="{{ url_for('static', filename='images/arrow2.svg') }}" class="arrow-icon" alt="Arrow"></a>
             <form action="{{ url_for('finish_day') }}" method="POST" style="display: inline;">
                 <button type="submit" class="finish-link" style="background: none; border: none; padding: 0; font: inherit; cursor: pointer; color: inherit;">Finish the Day<img src="{{ url_for('static', filename='images/arrow2.svg') }}" class="arrow-icon" alt="Arrow"></button>
             </form>
         </div>
-    
+
         <img src="{{ url_for('static', filename='images/leaf3.png') }}" class="leaf-corner" alt="Leaf">
-    
     </div>
-    
+
     <div class="goal-panel">
         <h2>Today's Caffeine Goal</h2>
         <div class="circular-fill-container">
-          <div class="circular-fill" 
-               id="caffeine-fill" 
-               data-intake="{{ caffeine_intake }}" 
-               data-goal="{{ caffeine_goal }}"></div>
-          <div class="goal-text">{{ caffeine_intake }}/{{ caffeine_goal }}<br>MG</div>
+            <div class="circular-fill" 
+                 id="caffeine-fill" 
+                 data-intake="{{ caffeine_intake }}" 
+                 data-goal="{{ caffeine_goal }}">
+            </div>
+            <div class="goal-text">{{ caffeine_intake }}/{{ caffeine_goal }}<br>MG</div>
         </div>
     </div>
-    
+
     <div class="flash-container">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -59,8 +60,8 @@
             {% endif %}
         {% endwith %}
     </div>
-    
-    <script src="{{ url_for('static', filename='js/caff_bar.js') }}"></script>
-</body>
 
+    <script src="{{ url_for('static', filename='js/caff_bar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/delete_drink.js') }}"></script>
+</body>
 {% endblock %}

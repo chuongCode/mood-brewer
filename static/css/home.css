@@ -259,6 +259,18 @@ h2{
     transition: height 1.2s ease-out;
     z-index: 1;
 }
+
+.delete-button {
+    margin-left: 1rem;
+    font-family: 'Skia';
+    src: url('../fonts/Skia CC Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    color: #DFCCAF;
+    background-color: #291313;
+    border-radius: 5px;
+    padding: 5px;
+}
   
 .goal-text {
     position: relative;
