@@ -52,7 +52,43 @@ pytest
 - `requirements.txt` - Project dependencies
 - `.env` - Environment variables (automatically generated, not tracked in git)
 
-## Task Division
+## Navigation & Important URLs
+- Landing Page (/) : Welcome screen with links to log in or sign up.
+- Home Page (/home) : Displays today's drinks, caffeine intake progress bar, and options to add drinks or finish the day.
+- Add Drink (/adddrink) : Form to submit a new drink entry with caffeine amount and mood.
+- Profile Page (/profile) : Displays user information and allows editing of the Daily MG Goal.
+- Caffeine Stats (/caff_stat) : Historical summary of caffeine intake and mood by day.
+- Logout (/logout) : Ends the user session.
 
-Emily Lin - Design, Conceptualization, Application Development
-Richard Chuong - Project Management, Application Development
+## Database Configurations
+User Table (User)
+- id : Integer, Primary Key
+- username : String, unique
+- email : String, unique
+- password_hash : String
+- caffeine_goal : Integer (default 400)
+
+DrinkEntry Table (DrinkEntry)
+- id : Integer, Primary Key
+- user_id : Foreign Key, User.id
+- drink_name : String
+- caffeine_amount : Integer
+- mood : String
+- date : Date
+
+DailySummary Table (DailySummary)
+- id : Integer, Primary Key
+- user_id : Foreign Key, User.id
+- date : Date
+- total_caffeine : Integer
+- average_mood : String
+
+## Additional Requirements
+- User Authentication
+- AJAX support (On Home Page.)
+- Additional database interactions
+- Unit tests
+
+## Group Distribution
+   Emily: I focused mainly on designing the user interface and user experience. I also contributed to backend functionality, particularly implementing the AJAX deletion flow and database interaction logic.
+   Richard Chuong - Project Management, Application Development
