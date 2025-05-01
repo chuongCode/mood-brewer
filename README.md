@@ -35,6 +35,14 @@ A Flask web application for tracking your caffeine intake and mood.
    http://127.0.0.1:5000/
    ```
 
+## Running Tests
+
+To run the unit tests, make sure you have activated your virtual environment and installed the dependencies. Then run:
+
+```
+pytest
+```
+
 ## Project Structure
 
 - `app.py` - Main application file
@@ -44,7 +52,7 @@ A Flask web application for tracking your caffeine intake and mood.
 - `requirements.txt` - Project dependencies
 - `.env` - Environment variables (automatically generated, not tracked in git)
 
-## Security Notes
+## Task Division
 
-- Never commit the `.env` file to version control
-- Keep your secret key secure
+Emily Lin - Design, Conceptualization, Application Development
+Richard Chuong - Project Management, Application Development
